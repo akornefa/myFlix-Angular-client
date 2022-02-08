@@ -17,7 +17,7 @@ export class UserRegistrationService {
   // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + 'users' + '/register', userDetails).pipe(
       catchError(this.handleError)
     );
   }
