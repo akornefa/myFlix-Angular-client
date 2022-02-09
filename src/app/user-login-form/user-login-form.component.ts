@@ -21,7 +21,7 @@ export class UserLoginFormComponent implements OnInit {
   }
 
   loginUser(): void {
-    this.fetchApiData.userRegistration(this.userCredentials).subscribe((result) => {
+    this.fetchApiData.userLogin(this.userCredentials).subscribe((result) => {
       // Logic for a successful user login goes here! 
       this.dialogRef.close(); // This will close the modal on success!
       localStorage.setItem('token', result.token);
