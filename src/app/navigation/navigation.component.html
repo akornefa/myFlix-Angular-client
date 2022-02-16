@@ -1,0 +1,7 @@
+<button mat-raised-button [matMenuTriggerFor]="menu" color='accent' class='navbar'>Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink='/movies'>myFlix</button>
+  <button mat-menu-item routerLink='/movies'>Movies</button>
+  <button mat-menu-item (click)='goToProfile()'>Profile</button>
+  <button mat-menu-item (click)='userLogout()'>Logout</button>
+</mat-menu>
