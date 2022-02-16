@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserRegistrationService } from '../fetch-api-data.service';
+import { GenreComponent } from '../genre/genre.component';
+import { DirectorComponent } from '../director/director.component';
+import { DescriptionComponent } from '../description/description.component';
 
 
 @Component({
@@ -9,7 +13,9 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: UserRegistrationService) { }
+  constructor(
+    public fetchApiData: UserRegistrationService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -20,6 +26,27 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  openGenreDialog(name: string, description: string): void {
+    this.dialog.open(GenreComponent, {
+      data: { name: name, description: description },
+      width: '300px'
+    });
+  }
+
+  openDirectorDialog(name: string, bio: string, birth: string): void {
+    this.dialog.open(DirectorComponent, {
+      data: { name: name, bio: bio, birth: birth },
+      width: '300px'
+    });
+  }
+
+  openDescriptionDialog(title: string, description: string): void {
+    this.dialog.open(DescriptionComponent, {
+      data: { title: title, description: description },
+      width: '300px'
     });
   }
 }
