@@ -11,7 +11,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ProfileEditComponent implements OnInit {
 
-  user: any = JSON.parse(localStorage.getItem('user') || '');
+  user = JSON.parse(localStorage.getItem('user') || '');
+
+
 
   @Input() userData = {
     Username: this.user.Username,
@@ -28,10 +30,10 @@ export class ProfileEditComponent implements OnInit {
     public snackBar: MatSnackBar
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  editUser(): void {
+
+  editUserNew(): void {
     this.fetchApiData
       .editUser(this.userData)
       .subscribe((res) => {

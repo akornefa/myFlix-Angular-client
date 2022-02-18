@@ -102,7 +102,7 @@ export class UserRegistrationService {
 
   // Making the API call for editing a user's profile
   editUser(userDetails: any): Observable<any> {
-    const username = localStorage.getItem('user')
+    const username = localStorage.getItem('username')
     const token = localStorage.getItem('token');
     return this.http.put(apiUrl + 'users/' + username, userDetails, {
       headers: new HttpHeaders(
@@ -114,6 +114,7 @@ export class UserRegistrationService {
       catchError(this.handleError)
     );
   }
+
 
   // Making the API call for adding movies to a user's favorites
   addFavoriteMovies(movieId: any): Observable<any> {
