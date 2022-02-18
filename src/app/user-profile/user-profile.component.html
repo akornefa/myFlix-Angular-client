@@ -8,7 +8,7 @@
     <mat-card-content class="card-content">
       <p><b>Username</b>: {{ user.Username }}</p>
       <p><b>Email</b>: {{ user.Email }}</p>
-      <p><b>Birth Date</b>: {{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}</p>
+      <p><b>Birthday</b>: {{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button class="float-right" mat-raised-button color="primary" (click)="openEditProfileDialog()">
