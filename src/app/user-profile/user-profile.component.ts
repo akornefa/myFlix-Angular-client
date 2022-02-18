@@ -28,10 +28,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserInfo(): void {
-    let user = JSON.parse(localStorage.getItem('user') || '');
-    this.fetchApiData.getUser(user.Username).subscribe((res: any) => {
-      this.user = res;
-    });
+    this.user = JSON.parse(localStorage.getItem('user') || '');
+    // this.fetchApiData.getUser(user.Username).subscribe((res: any) => {
+    //   this.user = res;
+    // });
   }
 
 
