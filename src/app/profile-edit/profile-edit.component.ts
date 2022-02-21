@@ -11,9 +11,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ProfileEditComponent implements OnInit {
 
-  user = JSON.parse(localStorage.getItem('user') || '');
-
-
+  user: any = JSON.parse(localStorage.getItem('user') || '');
 
   @Input() userData = {
     Username: this.user.Username,
@@ -35,7 +33,7 @@ export class ProfileEditComponent implements OnInit {
 
   editUserNew(): void {
     this.fetchApiData
-      .editUser(this.userData)
+      .editUser(this.userData.Username, this.userData)
       .subscribe((res) => {
         this.dialogRef.close();
         //updating the localstorage with the updated user
