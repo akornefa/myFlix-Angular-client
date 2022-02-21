@@ -31,6 +31,7 @@ import { DescriptionComponent } from './description/description.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
     DescriptionComponent,
     NavigationComponent,
     ProfileEditComponent,
-    ProfileDeleteComponent
+    ProfileDeleteComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
