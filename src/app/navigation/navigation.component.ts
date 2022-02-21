@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 @Component({
   selector: 'app-navigation',
@@ -32,11 +33,11 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  // goToFavorites(): void {
-  //   this.dialog.open(FavoritesComponent, {
-  //     width: '100%'
-  //   } );
-  // }
+  goToFavorites(): void {
+    this.dialog.open(FavoritesComponent, {
+      width: '100%'
+    });
+  }
 
   userLogout(): void {
     localStorage.clear();
