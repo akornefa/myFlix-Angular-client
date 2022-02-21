@@ -1,5 +1,5 @@
 <app-navigation></app-navigation>
-<div style="display: flex;">
+<div style="display: flex;" class="movie-container">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
     <mat-card-header>
       <mat-card-title>{{movie.Title}}</mat-card-title>
@@ -17,7 +17,12 @@
       <button mat-button color="primary" (click)='openDescriptionDialog(movie.Title, movie.Description)'>
         Synopsis
       </button>
-      <mat-icon>favorite_border</mat-icon>
+      <mat-icon class="fav-icon" *ngIf="faveCheck(movie._id)" (click)="toggleFaves(movie._id)" color="primary">favorite
+      </mat-icon>
+      <mat-icon class="fav-icon" *ngIf="!faveCheck(movie._id)" (click)="toggleFaves(movie._id)" color="primary">
+        favorite_border
+      </mat-icon>
+      <!-- <mat-icon>favorite_border</mat-icon> -->
     </mat-card-actions>
   </mat-card>
 </div>
