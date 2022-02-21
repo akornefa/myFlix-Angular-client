@@ -101,8 +101,7 @@ export class UserRegistrationService {
   }
 
   // Making the API call for editing a user's profile
-  editUser(userDetails: any): Observable<any> {
-    const username = localStorage.getItem('username')
+  editUser(username: any, userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.put(apiUrl + 'users/' + username, userDetails, {
       headers: new HttpHeaders(
@@ -117,10 +116,9 @@ export class UserRegistrationService {
 
 
   // Making the API call for adding movies to a user's favorites
-  addFavoriteMovies(movieId: any): Observable<any> {
-    const username = localStorage.getItem('user')
+  addFavoriteMovies(username: string, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieId, {
+    return this.http.put(apiUrl + 'users/' + username + '/movies/' + movieId, null, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -132,8 +130,7 @@ export class UserRegistrationService {
   }
 
   // Making the API call for deleting movies from a user's favorites
-  deleteMovie(movieId: any): Observable<any> {
-    const username = localStorage.getItem('user');
+  deleteMovie(username: string, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users/' + username + '/movies/' + movieId, {
       headers: new HttpHeaders(
@@ -147,8 +144,7 @@ export class UserRegistrationService {
   }
 
   // Making the API call for deleting a user's profile
-  deleteUser(): Observable<any> {
-    const username = localStorage.getItem('user')
+  deleteUser(username: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users/' + username, {
       headers: new HttpHeaders(
