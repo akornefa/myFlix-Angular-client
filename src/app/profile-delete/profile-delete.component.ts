@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ProfileDeleteComponent implements OnInit {
 
   user: any = JSON.parse(localStorage.getItem('user') || '');
+
   constructor(
     public fetchApiData: UserRegistrationService,
     public snackBar: MatSnackBar,
@@ -20,9 +21,11 @@ export class ProfileDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   deregisterUser(): void {
-    this.fetchApiData.deleteUser().subscribe(
-      () => {
+    this.fetchApiData.deleteUser(this.user.Username).subscribe(
+      (response) => {
+        console.log('removing user: ', this.user.Username);
         this.snackBar.open(
           `The user ${this.user.Username} has been deregistered`,
           'Great',
