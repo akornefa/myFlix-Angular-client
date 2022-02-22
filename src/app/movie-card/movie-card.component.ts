@@ -81,6 +81,7 @@ export class MovieCardComponent implements OnInit {
       return
     } else {
       this.fetchApiData.addFavoriteMovies(this.user.Username, movieId).subscribe((res: any) => {
+        localStorage.setItem('user', JSON.stringify(res));
         this.getCurrentUser();
         this.ngOnInit();
         this.snackBar.open('Added to faves', 'OK', { duration: 2000 });
