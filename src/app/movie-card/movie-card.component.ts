@@ -93,15 +93,16 @@ export class MovieCardComponent implements OnInit {
 
   removeFromFaves(movieId: any): void {
     this.fetchApiData.deleteMovie(this.user.Username, movieId).subscribe((res: any) => {
+      localStorage.setItem('user', JSON.stringify(res));
       this.snackBar.open('Removed from faves', 'OK', { duration: 2000 });
-      this.getCurrentUser;
+      this.getCurrentUser();
       this.ngOnInit();
       2000
     });
   }
 
   toggleFaves(movieId: string): void {
-    if (this.currentFaves.filter(function (e: any) { return e._id === movieId; }).length > 0) {
+    if (this.faveCheck(movieId)) {
       this.removeFromFaves(movieId);
       this.isInFaves = false;
     } else {
@@ -111,11 +112,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   faveCheck(movieId: string): any {
-    let faveIds = this.currentFaves.map(function (fave: any) { return fave._id });
-    if (faveIds.includes(movieId)) {
-      this.isInFaves = true;
-      return this.isInFaves;
-    };
+    return this.currentFaves.includes(movieId);
   }
 }
 
