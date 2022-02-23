@@ -14,7 +14,11 @@ export class UserRegistrationService {
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {
   }
-  // Making the api call for the user registration endpoint
+  /**
+  * Registers a new user/creates new account
+  * @returns a success/error
+  */
+
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users' + '/register', userDetails).pipe(
@@ -22,7 +26,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the api call for the user login endpoint
+  /**
+  * Logs in an existing user
+  * @returns a success/error
+  */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
@@ -30,7 +37,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the api call for getting all movies
+  /**
+   * Gets all movies
+   * @returns all movies object
+   */
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {
@@ -44,8 +54,11 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the api call for getting a single movie
-  geMovie(title: any): Observable<any> {
+  /**
+  * Gets a movie by its title
+  * @returns a movie object
+  */
+  getMovie(title: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/' + 'title/' + title, {
       headers: new HttpHeaders(
@@ -58,7 +71,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for getting a genre's description
+  /**
+  * Gets all genres
+  * @returns a all genres object
+  */
   getGenre(genre: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/' + 'genre/' + genre, {
@@ -72,7 +88,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for getting a director's details
+  /**
+ * Gets a director by his name
+ * @returns a director object
+ */
   getDirector(director: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/' + 'directors/' + director, {
@@ -86,7 +105,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for getting a user's information
+  /**
+  * Gets a user by his username
+  * @returns a user object
+  */
   getUser(username: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'users/' + username, {
@@ -100,7 +122,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for editing a user's profile
+  /**
+ * Edits user data
+ * @returns a success/error
+ */
   editUser(username: any, userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.put(apiUrl + 'users/' + username, userDetails, {
@@ -115,7 +140,10 @@ export class UserRegistrationService {
   }
 
 
-  // Making the API call for adding movies to a user's favorites
+  /**
+ * Adds a title to selected user's faves
+ * @returns a success/error
+ */
   addFavoriteMovies(username: string, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.put(apiUrl + 'users/' + username + '/movies/' + movieId, null, {
@@ -129,7 +157,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for deleting movies from a user's favorites
+  /**
+  * Remove a title from selected user's faves
+  * @returns a success/error
+  */
   deleteMovie(username: string, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users/' + username + '/movies/' + movieId, {
@@ -143,7 +174,10 @@ export class UserRegistrationService {
     );
   }
 
-  // Making the API call for deleting a user's profile
+  /**
+ * Removes a user by his username
+ * @returns a success/error
+ */
   deleteUser(username: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users/' + username, {

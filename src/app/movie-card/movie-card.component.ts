@@ -53,14 +53,25 @@ export class MovieCardComponent implements OnInit {
       return this.movies;
     });
   }
-
+  /**
+   * This function will open a genre model and accept a name and description of genre.
+   * 
+   * @param name 
+   * @param description 
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: { name: name, description: description },
       width: '300px'
     });
   }
-
+  /**
+   * This function opens a director model and accepts a name, bio and birthdate.
+   * 
+   * @param name 
+   * @param bio 
+   * @param birth 
+   */
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorComponent, {
       data: { name: name, bio: bio, birth: birth },
@@ -100,6 +111,14 @@ export class MovieCardComponent implements OnInit {
       2000
     });
   }
+
+  /**
+   * Add to faves if the title is not in faves,
+   * removes from faves, if the title is in faves
+   * (called by clicking the heart icon)
+   * @param movieId
+   * @returns isInFavs
+   */
 
   toggleFaves(movieId: string): void {
     if (this.faveCheck(movieId)) {
