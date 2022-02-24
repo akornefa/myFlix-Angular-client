@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
+This is the Angular version of the client-side respository for the myFlix application allowing users to view the details of the movies from the data base.
+
+[The server-side repository can be viewed here.](https://github.com/akornefa/movie_api)
+
+Users need to register for an account and all the available movies will be displayed upon login. Then they can review particular titles, as well as their directors, genres and synopses. Users can favorite and unfavorite the particular movies and edit their profile data.
+
+[The project can be run here.](https://akornefa.github.io/myFlix-Angular-client/)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
